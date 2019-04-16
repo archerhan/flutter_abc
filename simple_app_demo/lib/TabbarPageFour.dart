@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TabbarPageSecond extends StatefulWidget {
+class TabBarPageFour extends StatefulWidget {
   @override
-  _TabbarPageSecondState createState() => _TabbarPageSecondState();
+  _TabBarPageFourState createState() => _TabBarPageFourState();
 }
-//AutomaticKeepAliveClientMixin 你会发现页面点击切换时，StatefulWidget 的子页面每次都会重新调用initState。这肯定不是我们想要的，
-// 所以这时你就需要AutomaticKeepAliveClientMixin 。
-class _TabbarPageSecondState extends State<TabbarPageSecond> with AutomaticKeepAliveClientMixin {
+
+class _TabBarPageFourState extends State<TabBarPageFour> with AutomaticKeepAliveClientMixin {
   final _suggestions = <String>[];
-  final _biggerFont = const TextStyle(fontSize: 18);
+
+  final _biggerFont = const TextStyle(fontSize: 18.0);
+
   Widget _buildRow(String pair) {
     return new ListTile(
       title: new Text(
@@ -17,20 +18,41 @@ class _TabbarPageSecondState extends State<TabbarPageSecond> with AutomaticKeepA
       ),
     );
   }
+
   generateWordPairs() {
     return [
-      "111",
-      "222",
-      "333",
-      "444",
-      "555",
-      "666",
-      "777",
-      "888",
-      "999",
-      "000",
-      "xxx",
-      "uuu"
+      "First",
+      "Second",
+      "Three",
+      "Four",
+      "111111",
+      "222222",
+      "333333",
+      "444444",
+      "First",
+      "Second",
+      "Three",
+      "Four",
+      "111111",
+      "222222",
+      "333333",
+      "444444",
+      "First",
+      "Second",
+      "Three",
+      "Four",
+      "111111",
+      "222222",
+      "333333",
+      "444444",
+      "First",
+      "Second",
+      "Three",
+      "Four",
+      "111111",
+      "222222",
+      "333333",
+      "444444",
     ];
   }
 
@@ -47,14 +69,13 @@ class _TabbarPageSecondState extends State<TabbarPageSecond> with AutomaticKeepA
           return _buildRow(_suggestions[index]);
         });
   }
+
   @override
   bool get wantKeepAlive => true;
 
-
   @override
   Widget build(BuildContext context) {
-    super.build(context);
+    super.build(context); // See AutomaticKeepAliveClientMixin.
     return _buildSuggestions();
   }
 }
-

@@ -13,7 +13,6 @@ class AHTabbar extends StatefulWidget {
   final Widget floatingActionButton;
   final TarWidgetControl tarWidgetControl;
   final PageController topPageContrl;
-  final Text test;
 
   AHTabbar({
     Key key,
@@ -30,7 +29,17 @@ class AHTabbar extends StatefulWidget {
   }) : super(key : key);
 
   @override
-  _AHTabbarState createState() => new _AHTabbarState(type,tabItems,tableViews,backgroundColor,indicatorColor,title,drawer,floatingActionButton,tarWidgetControl,topPageContrl);
+  _AHTabbarState createState() => new _AHTabbarState(
+      type,
+      tabItems,
+      tableViews,
+      backgroundColor,
+      indicatorColor,
+      title,
+      drawer,
+      floatingActionButton,
+      topPageContrl
+  );
 }
 ///这是个有状态的 widget,所以先配置状态
 class _AHTabbarState extends State<AHTabbar> with SingleTickerProviderStateMixin {
@@ -90,7 +99,7 @@ class _AHTabbarState extends State<AHTabbar> with SingleTickerProviderStateMixin
             tabs: _tabItems,
             isScrollable: true,
             controller: _tabController,
-            indicator: _indicatorColor,
+            indicatorColor: _indicatorColor,
           ),
         ),
         ///页面主体
@@ -125,12 +134,13 @@ class _AHTabbarState extends State<AHTabbar> with SingleTickerProviderStateMixin
       bottomNavigationBar: new Material(
         color: _backgroundColor,
         child: new TabBar(
+          controller: _tabController,
           tabs: _tabItems,
           indicatorColor: _indicatorColor,
         ),
       ),
     );
-  };
+  }
 }
 
 class TarWidgetControl  {
