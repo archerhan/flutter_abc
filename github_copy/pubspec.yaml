@@ -26,7 +26,9 @@ dependencies:
   flutter_redux: ^0.5.3
   rxdart: ^0.21.0
   json_annotation: ^2.0.0
-
+  flutter_localizations:
+    sdk: flutter
+  event_bus:  ^1.0.3
 
 
 

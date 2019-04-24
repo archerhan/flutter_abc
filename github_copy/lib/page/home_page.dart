@@ -13,7 +13,7 @@ import 'package:github_copy/common/style/hyc_style.dart';
 import 'package:github_copy/Widgets/hyc_title_bar.dart';
 
 class HomePage extends StatelessWidget {
-  
+  static final String sName = "home";
   _renderTab(icon, text) {
     return new Tab(
       child: new Column(
