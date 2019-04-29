@@ -23,7 +23,7 @@ class FlutterReduxApp extends StatelessWidget {
     appReducer,
     middleware: middleware,
 //    TODO:CommonUtils 类待完善
-    initialState: new HycState(userInfo: User.empty(),themeData: ThemeData(primarySwatch: HycColors.primarySwatch))
+    initialState: new HycState(userInfo: User.empty(),themeData: ThemeData(primarySwatch: HycColors.primarySwatch), locale: Locale('zh' , 'CH')),
   );
   FlutterReduxApp({Key key}) : super(key: key);
   @override
@@ -32,13 +32,13 @@ class FlutterReduxApp extends StatelessWidget {
       store: store,
       child: new StoreBuilder<HycState>(builder: (context, store){
         return new MaterialApp(
-          localizationsDelegates: [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            HycLocalizationsDelegate.delegate,
-          ],
-          locale: store.state.locale,
-          supportedLocales: [store.state.locale],
+//          localizationsDelegates: [
+//            GlobalMaterialLocalizations.delegate,
+//            GlobalWidgetsLocalizations.delegate,
+//            HycLocalizationsDelegate.delegate,
+//          ],
+//          locale: store.state.locale,
+//          supportedLocales: [store.state.locale],
           theme: store.state.themeData,
           routes: {
             HomePage.sName : (context) {
