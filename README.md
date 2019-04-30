@@ -1,5 +1,5 @@
 # flutter_abc
-This is a flutter learning respository.
+This is a flutter learning repository.
 
 flutter 的学习之路  
 
