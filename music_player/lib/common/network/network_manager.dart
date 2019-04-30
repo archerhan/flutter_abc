@@ -18,9 +18,9 @@ import 'package:path_provider/path_provider.dart';
 
 import 'package:music_player/common/model/playlist_detail.dart';
 import 'package:music_player/common/model/base_model.dart';
-import 'package:music_player/common/cache.dart';
+import 'package:music_player/common/network/cache.dart';
 import 'package:music_player/widget/refresh_indicator.dart';
-import 'package:music_player/common/local_data.dart';
+import 'package:music_player/common/network/local_data.dart';
 
 NeteaseRepository neteaseRepository = NeteaseRepository._private();
 

@@ -4,7 +4,7 @@
  * Description:
  */
 
-import 'package:music_player/common/network_manager.dart';
+import 'package:music_player/common/network/network_manager.dart';
 import 'package:music_player/common/model/base_model.dart';
 
 class PlaylistDetail {

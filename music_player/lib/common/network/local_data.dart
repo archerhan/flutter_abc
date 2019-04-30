@@ -8,7 +8,7 @@ import 'dart:async';
 import 'package:music_player/common/model/playlist_detail.dart';
 import 'package:flutter/foundation.dart';
 
-import 'database.dart';
+import 'package:music_player/common/network/database.dart';
 
 NeteaseLocalData neteaseLocalData = NeteaseLocalData._();
 
