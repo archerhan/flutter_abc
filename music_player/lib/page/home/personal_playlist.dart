@@ -90,15 +90,16 @@ class _PinnedHeader extends StatelessWidget {
               ),
               title: Text('播放记录'),
               onTap: () {
-                if (UserAccount.of(context, rebuildOnChange: false).isLogin) {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return RecordPage(
-                        uid: UserAccount.of(context, rebuildOnChange: false)
-                            .userId);
-                  }));
-                } else {
-                  //todo show login dialog
-                }
+
+//                if (UserAccount.of(context, rebuildOnChange: false).isLogin) {
+//                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                    return RecordPage(
+//                        uid: UserAccount.of(context, rebuildOnChange: false)
+//                            .userId);
+//                  }));
+//                } else {
+//                  //todo show login dialog
+//                }
               },
             )),
         DividerWrapper(
@@ -116,7 +117,7 @@ class _PinnedHeader extends StatelessWidget {
                     '(${Counter.of(context).djRadioCount + Counter.of(context).createDjRadioCount})'),
               ])),
               onTap: () {
-                Navigator.pushNamed(context, ROUTE_MY_DJ);
+//                Navigator.pushNamed(context, ROUTE_MY_DJ);
               },
             )),
         ListTile(
@@ -132,7 +133,7 @@ class _PinnedHeader extends StatelessWidget {
                 '(${Counter.of(context).mvCount + Counter.of(context).artistCount})'),
           ])),
           onTap: () {
-            Navigator.pushNamed(context, ROUTE_MY_COLLECTION);
+//            Navigator.pushNamed(context, ROUTE_MY_COLLECTION);
           },
         ),
         Container(height: 8, color: Color(0xfff5f5f5))
