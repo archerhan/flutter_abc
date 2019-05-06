@@ -25,39 +25,43 @@ class _MainPlayListPageState extends State<MainPlayListPage> with AutomaticKeepA
 
   @override
   Widget build(BuildContext context) {
-    final userId = UserAccount.of(context).userId;
-    Widget widget;
-    if (!UserAccount.of(context).isLogin) {
-      //TODO:显示登录条
-    }
-    else {
-      widget = RefreshIndicator(
-        key:_indicatorKey,
-        onRefresh: () => Future.wait([
-          _loaderKey.currentState.refresh(),
-          Counter.refresh(context),
-        ]),
-        child: Loader(
-          key: _loaderKey,
-          initialData: neteaseLocalData.getUserPlaylist(userId),
-          loadTask: () => neteaseRepository.userPlaylist(userId),
-          resultVerify: simpleLoaderResultVerify((v) => v != null),
-          loadingBuilder: (context) {
-            _indicatorKey.currentState.show();
-            return ListView(
-              children: <Widget>[
-                //TODO:Pinted header
-              ],
-            );
-          },
-          failedWidgetBuilder: (context, result, msg) {
+  	return ListView(
+      children: <Widget>[_PinnedHeader()],
+    );
 
-          },
-        ),
-
-      );
-    }
-    return Container();
+//    final userId = UserAccount.of(context).userId;
+//    Widget widget;
+//    if (!UserAccount.of(context).isLogin) {
+//      //TODO:显示登录条
+//    }
+//    else {
+//      widget = RefreshIndicator(
+//        key:_indicatorKey,
+//        onRefresh: () => Future.wait([
+//          _loaderKey.currentState.refresh(),
+//          Counter.refresh(context),
+//        ]),
+//        child: Loader(
+//          key: _loaderKey,
+//          initialData: neteaseLocalData.getUserPlaylist(userId),
+//          loadTask: () => neteaseRepository.userPlaylist(userId),
+//          resultVerify: simpleLoaderResultVerify((v) => v != null),
+//          loadingBuilder: (context) {
+//            _indicatorKey.currentState.show();
+//            return ListView(
+//              children: <Widget>[
+//                //TODO:Pinted header
+//              ],
+//            );
+//          },
+//          failedWidgetBuilder: (context, result, msg) {
+//
+//          },
+//        ),
+//
+//      );
+//    }
+//    return Container();
   }
 
   @override

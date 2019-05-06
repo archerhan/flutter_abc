@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/page/home/personal_playlist.dart';
 import 'package:music_player/page/home/cloud_music.dart';
 import 'package:music_player/common/model/account.dart';
+import 'package:music_player/widget/bottom/bottom_controller.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -108,7 +109,13 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             )
           ],
         ),
-//TODO:body 未做, 带有播放功能
+				body: BoxWithBottomPlayerController(TabBarView(
+					controller: _tabController,
+					children: <Widget>[
+						MainPlayListPage(),
+						MainCloudPage()
+					],
+				)),
       ),
     );
   }
@@ -178,14 +185,17 @@ class _AppDrawerHeader extends StatelessWidget {
 							mainAxisSize: MainAxisSize.min,
 							children: <Widget>[
 								Text('登录网易云音乐'),
-								Text('手机电脑多端同步,尽享海量高品质音乐'),
+								Text(
+										'手机电脑多端同步,尽享海量高品质音乐',
+									textAlign: TextAlign.center,
+								),
 								SizedBox(height: 8),
 								FlatButton(
 									shape: RoundedRectangleBorder(
 										side: BorderSide(
 											color: Theme.of(context).primaryTextTheme.body1.color.withOpacity(0.3)),
 										borderRadius: BorderRadius.circular(20)),
-									padding: EdgeInsets.symmetric(horizontal: 40),
+									padding: EdgeInsets.symmetric(horizontal: 60),
 									onPressed: () {
 //										Navigator.pushNamed(context, ROUT_LOGIN);
 									},
