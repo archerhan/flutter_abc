@@ -109,13 +109,14 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             )
           ],
         ),
-				body: BoxWithBottomPlayerController(TabBarView(
-					controller: _tabController,
-					children: <Widget>[
-						MainPlayListPage(),
-						MainCloudPage()
-					],
-				)),
+				body: Text("这个是播放列表页"),
+//				body: BoxWithBottomPlayerController(TabBarView(
+//					controller: _tabController,
+//					children: <Widget>[
+//						MainPlayListPage(),
+//						MainCloudPage()
+//					],
+//				)),
       ),
     );
   }
@@ -190,17 +191,35 @@ class _AppDrawerHeader extends StatelessWidget {
 									textAlign: TextAlign.center,
 								),
 								SizedBox(height: 8),
-								FlatButton(
-									shape: RoundedRectangleBorder(
-										side: BorderSide(
-											color: Theme.of(context).primaryTextTheme.body1.color.withOpacity(0.3)),
-										borderRadius: BorderRadius.circular(20)),
-									padding: EdgeInsets.symmetric(horizontal: 60),
-									onPressed: () {
-//										Navigator.pushNamed(context, ROUT_LOGIN);
-									},
-									textColor: Theme.of(context).primaryTextTheme.body1.color,
-									child: Text('立即登录'),
+								Column(
+								  children: <Widget>[
+								    Column(
+								      children: <Widget>[
+								        Column(
+								          children: <Widget>[
+								            Center(
+								              child: Container(
+								                child: Center(
+								                  child: Padding(
+								                    padding: const EdgeInsets.all(8.0),
+								                    child: Row(
+								                      children: <Widget>[
+								                        Column(
+								                          children: <Widget>[
+								                            Text('立即登录'),
+								                          ],
+								                        ),
+								                      ],
+								                    ),
+								                  ),
+								                ),
+								              ),
+								            ),
+								          ],
+								        ),
+								      ],
+								    ),
+								  ],
 								),
 							],
 						),
