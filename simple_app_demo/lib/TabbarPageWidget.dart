@@ -12,7 +12,7 @@ class TabbarPageWidget extends StatefulWidget {
 
 class _TabbarPageWidgetState extends State<TabbarPageWidget> {
   final PageController topPageController = new PageController();
-  final List<String> tab = ["111", "222", "333", "444", "555", "666", "777", "888", "999", "1010", "1111", "1212", "1313", "1414", "!515", "1616"];
+  final List<String> tab = ["111", "222"];
 
   _renderTab() {
     List<Widget> list = new List();
@@ -30,20 +30,6 @@ class _TabbarPageWidgetState extends State<TabbarPageWidget> {
     return  [
       new TabbarPageFirst(),
       new TabbarPageSecond(),
-      new TabbarPageThird(),
-      new TabBarPageFour(),
-      new TabbarPageFirst(),
-      new TabbarPageSecond(),
-      new TabbarPageThird(),
-      new TabBarPageFour(),
-      new TabbarPageFirst(),
-      new TabbarPageSecond(),
-      new TabbarPageThird(),
-      new TabBarPageFour(),
-      new TabbarPageFirst(),
-      new TabbarPageSecond(),
-      new TabbarPageThird(),
-      new TabBarPageFour(),
     ];
   }
 

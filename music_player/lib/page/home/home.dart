@@ -9,7 +9,7 @@ import 'package:music_player/page/home/personal_playlist.dart';
 import 'package:music_player/page/home/cloud_music.dart';
 import 'package:music_player/common/model/account.dart';
 import 'package:music_player/widget/bottom/bottom_controller.dart';
-
+import 'package:music_player/widget/tabbar_widget.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -20,6 +20,28 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   TabController _tabController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
+	final List<String> tab = ["111", "222"];
+
+//	_renderTab() {
+//		List<Widget> list = new List();
+//		for (int i = 0; i < tab.length; i++) {
+//			list.add(new FlatButton(onPressed: (){
+//				topPageController.jumpTo(MediaQuery.of(context).size.width * i);
+//			}, child: new Text(
+//				tab[i],
+//				maxLines: 1,
+//			)));
+//		}
+//		return list;
+//	}
+//	_renderPage() {
+//		return  [
+//			new TabbarPageFirst(),
+//			new TabbarPageSecond(),
+//		];
+//	}
 
   ProxyAnimation transitionAnimation = ProxyAnimation(kAlwaysDismissedAnimation);
   @override
@@ -36,6 +58,15 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
+//  	return new AHTabbar(
+//			title: new Text("Test"),
+//			type: AHTabbar.TOP_TAB,
+////			tabItems: _renderTab(),
+////			tableViews: _renderPage(),
+//			topPageContrl: _tabController,
+//			backgroundColor: Colors.lightBlue,
+//			indicatorColor: Colors.white,
+//		);
     return Container(
       child: Scaffold(
         key: _scaffoldKey,
@@ -109,7 +140,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             )
           ],
         ),
-				body: Text("这个是播放列表页"),
+
 //				body: BoxWithBottomPlayerController(TabBarView(
 //					controller: _tabController,
 //					children: <Widget>[
