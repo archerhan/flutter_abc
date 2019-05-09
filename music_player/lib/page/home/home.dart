@@ -21,28 +21,6 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   TabController _tabController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-
-	final List<String> tab = ["111", "222"];
-
-//	_renderTab() {
-//		List<Widget> list = new List();
-//		for (int i = 0; i < tab.length; i++) {
-//			list.add(new FlatButton(onPressed: (){
-//				topPageController.jumpTo(MediaQuery.of(context).size.width * i);
-//			}, child: new Text(
-//				tab[i],
-//				maxLines: 1,
-//			)));
-//		}
-//		return list;
-//	}
-//	_renderPage() {
-//		return  [
-//			new TabbarPageFirst(),
-//			new TabbarPageSecond(),
-//		];
-//	}
-
   ProxyAnimation transitionAnimation = ProxyAnimation(kAlwaysDismissedAnimation);
   @override
   void initState() {
@@ -58,15 +36,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-//  	return new AHTabbar(
-//			title: new Text("Test"),
-//			type: AHTabbar.TOP_TAB,
-////			tabItems: _renderTab(),
-////			tableViews: _renderPage(),
-//			topPageContrl: _tabController,
-//			backgroundColor: Colors.lightBlue,
-//			indicatorColor: Colors.white,
-//		);
+
     return Container(
       child: Scaffold(
         key: _scaffoldKey,
@@ -105,8 +75,8 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 						],
 					),
         ),
-        appBar: AppBar(
-          leading: IconButton(
+        appBar: new AppBar(
+          leading: new IconButton(
               icon: AnimatedIcon(
                 icon: AnimatedIcons.menu_arrow,
                 color: Theme.of(context).primaryIconTheme.color,
@@ -120,6 +90,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             width: 128,
             child: TabBar(
               controller: _tabController,
+              isScrollable: true,
               indicator:
               UnderlineTabIndicator(insets: EdgeInsets.only(bottom: 4)),
               indicatorSize: TabBarIndicatorSize.label,
@@ -141,14 +112,13 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
           ],
         ),
 
-//				body: BoxWithBottomPlayerController(TabBarView(
-//					controller: _tabController,
-//					children: <Widget>[
-//						MainPlayListPage(),
-//						MainCloudPage()
-//					],
-//				)),
-      ),
+				body: new TabBarView(
+					controller: _tabController,
+					children: <Widget>[
+						MainPlayListPage(),
+						MainCloudPage()
+					],
+				)),
     );
   }
 }

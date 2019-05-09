@@ -25,9 +25,25 @@ class _MainPlayListPageState extends State<MainPlayListPage> with AutomaticKeepA
 
   @override
   Widget build(BuildContext context) {
-  	return ListView(
-      children: <Widget>[_PinnedHeader()],
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        tooltip: '点击相加',
+        child: Icon(Icons.add,color: Colors.white,),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("这是界面"),
+          ],
+        ),
+      ),
     );
+    
+//  	return ListView(
+//      children: <Widget>[_PinnedHeader()],
+//    );
 
 //    final userId = UserAccount.of(context).userId;
 //    Widget widget;

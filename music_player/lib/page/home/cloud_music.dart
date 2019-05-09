@@ -13,7 +13,21 @@ class MainCloudPage extends StatefulWidget {
 class _MainCloudPageState extends State<MainCloudPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          tooltip: '点击相加',
+          child: Icon(Icons.add,color: Colors.white,),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("这是界面"),
+            ],
+          ),
+        ),
+    );
   }
 }
 
