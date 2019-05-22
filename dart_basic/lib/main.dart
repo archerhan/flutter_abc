@@ -24,15 +24,20 @@ void main() {
 //  // Invokes `Object.noSuchMethod`, not `TestMethod.noSuchMethod`, so it throws.
 //  f(42);
 
+//
+//  print(sayHello(Person('李四'))); // 你好 张三. 我是 李四.
+//  print(sayHello(PersonImpl())); // 你好 张三  你知道我是谁吗？
+//
+//
+//  var test = new Test();
+//  var result = test(166.6665,"Flutter真好玩",672);
+//  print("$result");// 666.666 Flutter真好玩 666
 
-  print(sayHello(Person('李四'))); // 你好 张三. 我是 李四.
-  print(sayHello(PersonImpl())); // 你好 张三  你知道我是谁吗？
 
+//assert(testM() is Function);
 
-  var test = new Test();
-  var result = test(166.6665,"Flutter真好玩",672);
-  print("$result");// 666.666 Flutter真好玩 666
-
+  var result = new TestChild.area(3, 4);
+  print('面积为：${result.area}');
 
 }
 
@@ -220,3 +225,44 @@ class Test {
   // 必须是call函数
   call(double a, String b, int c) => '${a*4} ${b} ${c-6}';
 }
+
+
+void testM() {
+
+}
+
+class Test1 {
+  num width;
+  num height;
+  num area;
+
+  // 必须加上空参构造，如果注释掉 它的子类会报错
+  Test1() {
+    print('Test 空参构造');
+  }
+
+  Test1.area(width, height)
+      : width = width,
+        height = height,
+        area = width * height {
+    print('Test 有参构造');
+  }
+}
+
+
+class TestChild extends Test1 {
+
+  num width;
+  num height;
+  num area;
+
+  TestChild() {
+    print('TestChild 空参构造');
+  }
+
+  TestChild.area(num width, num height)
+      : area = (width * height)/2 {
+    print('TestChild 有参构造');
+  }
+}
+
