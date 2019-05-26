@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -119,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
               }
             ),
+            RandomWordsWidget(),
           ],
         ),
       ),
@@ -159,6 +161,18 @@ class EchoRoute extends StatelessWidget {
       body: Center(
         child: Text('this is echo route'),
       ),
+    );
+  }
+}
+
+class RandomWordsWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // 生成随机字符串
+    final wordPair = new WordPair.random();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Text(wordPair.toString()),
     );
   }
 }
