@@ -4,9 +4,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 
-void main() => runApp(MyApp());
+void main(){
+  //可视化布局调试开关
+  debugPaintSizeEnabled = true;
+//  debugPaintBaselinesEnabled = true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -122,12 +129,20 @@ class _MyHomePageState extends State<MyHomePage> {
 //
 //                    ));
               //arguments是要往上级传递的参数
-              Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
+//              Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
+//              debugDumpApp();
+//              debugDumpRenderTree();
+//                debugDumpLayerTree();
+//              debugPrintStack();//打印调用堆栈
+
               }
+
+
             ),
             RandomWordsWidget(),
             Image.asset('assets/logo.png')
           ],
+
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -176,6 +191,7 @@ class RandomWordsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // 生成随机字符串
     final wordPair = new WordPair.random();
+    debugPrint(wordPair.toString());
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: new Text(wordPair.toString()),
