@@ -78,36 +78,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
+//    return Echo(text: 'hello world!',);
+
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+
         child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -129,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //
 //                    ));
               //arguments是要往上级传递的参数
-//              Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
+              Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
 //              debugDumpApp();
 //              debugDumpRenderTree();
 //                debugDumpLayerTree();
@@ -154,6 +136,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+class Echo extends StatelessWidget {
+
+  const Echo({
+    Key key,
+    @required this.text,
+    this.backgroundColor : Colors.grey,
+
+  }) : super(key: key);
+
+  final String text;
+  final Color backgroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Center(
+      child: Container(
+        child: Text(text),
+        color: backgroundColor,
+      ),
+    );
+  }
+}
+
+
 class NewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -175,14 +182,16 @@ class EchoRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     var args=ModalRoute.of(context).settings.arguments;
     print(args);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('This is a echo title'),
-      ),
-      body: Center(
-        child: Text('this is echo route'),
-      ),
-    );
+
+    return CounterWidget();
+//    return Scaffold(
+//      appBar: AppBar(
+//        title: Text('This is a echo title'),
+//      ),
+//      body: Center(
+//        child: Text('this is echo route'),
+//      ),
+//    );
   }
 }
 
@@ -198,3 +207,79 @@ class RandomWordsWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+class CounterWidget extends StatefulWidget {
+  const CounterWidget({
+    Key key,
+    this.initValue : 0,
+  });
+
+  final int initValue;
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+
+  int _counter;
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.initValue;
+    print('init state');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('build');
+    return Scaffold(
+      body: Center(
+        child: FlatButton(
+            onPressed: () {
+              setState(() {
+                _counter++;
+              });
+            },
+            child: Text('$_counter')
+        ),
+      ),
+    );
+  }
+
+  @override
+  void didUpdateWidget(CounterWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('did update widget');
+  }
+
+  @override
+  void deactivate() {
+    // TODO: implement deactivate
+    super.deactivate();
+    print('deactivate');
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print('dispose');
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    print("reassemble");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
+
+}
+
+
