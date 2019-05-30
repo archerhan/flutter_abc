@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 
 void main(){
   //可视化布局调试开关
-  debugPaintSizeEnabled = true;
+//  debugPaintSizeEnabled = true;
 //  debugPaintBaselinesEnabled = true;
   runApp(MyApp());
 }
@@ -92,15 +92,36 @@ class _MyHomePageState extends State<MyHomePage> {
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            Text.rich(TextSpan(
+            children: [
+              TextSpan(
+                text: 'hhahahaha',
+                style: TextStyle(
+                  color: Colors.red,
+                  backgroundColor: Colors.yellow
+                )
+
+              ),
+              TextSpan(
+                text: 'uuuuuuuuuuu',
+                style: TextStyle(
+                  color: Colors.green,
+                  decoration: TextDecoration.lineThrough
+                )
+              )
+            ],
+        )),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-            FlatButton(
+            RaisedButton(
               child: Text('Click to push'),
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+              splashColor: Colors.green,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               onPressed: () {
 //                Navigator.push(context,
 //                    new MaterialPageRoute(
@@ -122,7 +143,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ),
             RandomWordsWidget(),
-            Image.asset('assets/logo.png')
+            Image.network(
+              'https://avatars2.githubusercontent.com/u/20411648?s=460&v=4',
+              width: 50,
+              color: Colors.blue,
+              colorBlendMode: BlendMode.difference,
+              repeat: ImageRepeat.repeatY,
+            ),
+            Icon(Icons.accessible,color: Colors.green,),
+            Icon(Icons.help,color: Colors.green,),
+            Icon(Icons.fingerprint,color: Colors.red,),
+            Icon(MyIcons.github, color: Colors.black,),
+            Icon(MyIcons.pay, color: Colors.blue[500],)
           ],
 
         ),
@@ -242,7 +274,17 @@ class _CounterWidgetState extends State<CounterWidget> {
                 _counter++;
               });
             },
-            child: Text('$_counter')
+            child: Text(
+              '$_counter',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.red,
+                backgroundColor: Colors.lightGreen,
+                decoration: TextDecoration.underline,
+              ),
+              textScaleFactor: 4,
+
+            )
         ),
       ),
     );
@@ -280,6 +322,22 @@ class _CounterWidgetState extends State<CounterWidget> {
     print("didChangeDependencies");
   }
 
+}
+
+
+class MyIcons {
+  //github图标
+  static const IconData github = const IconData(
+    0xe65f,
+    fontFamily: 'iconfont',
+    matchTextDirection: true
+  );
+  //支付宝图标
+  static const IconData pay = const IconData(
+      0xe667,
+      fontFamily: 'iconfont',
+      matchTextDirection: true
+  );
 }
 
 

@@ -41,3 +41,8 @@ flutter:
     - assets/screen.png
     - assets/logo.png
 
+  fonts:
+    - family: iconfont
+      fonts:
+        - asset: fonts/iconfont.ttf
+
