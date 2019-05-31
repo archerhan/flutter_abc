@@ -64,6 +64,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  TextEditingController _usernameTextController = new TextEditingController();
+  TextEditingController _pwdTextController = new TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -73,6 +75,19 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    //给输入框添加监听
+    _usernameTextController.addListener((){
+      print(_usernameTextController.text);
+    });
+
+    _pwdTextController.addListener((){
+      print(_pwdTextController.text);
     });
   }
 
@@ -126,13 +141,20 @@ class _MyHomePageState extends State<MyHomePage> {
 //                Navigator.push(context,
 //                    new MaterialPageRoute(
 //                        builder: (context) {
-//                      return new NewRoute();
+//                      return new SwitchAndCheckBoxTestRoute();
 //                    },
 //                      fullscreenDialog: true,
 //
 //                    ));
+
+
               //arguments是要往上级传递的参数
               Navigator.pushNamed(context, 'echo_page', arguments: 'This is a callback message');
+
+              print(_usernameTextController.text);
+              print(_pwdTextController.text);
+
+
 //              debugDumpApp();
 //              debugDumpRenderTree();
 //                debugDumpLayerTree();
@@ -154,7 +176,28 @@ class _MyHomePageState extends State<MyHomePage> {
             Icon(Icons.help,color: Colors.green,),
             Icon(Icons.fingerprint,color: Colors.red,),
             Icon(MyIcons.github, color: Colors.black,),
-            Icon(MyIcons.pay, color: Colors.blue[500],)
+            Icon(MyIcons.pay, color: Colors.blue[500],),
+            TextField(
+              autofocus: true,
+              autocorrect: false,
+              decoration: InputDecoration(
+                  labelText: '用户名',
+                  hintText: '手机号或邮箱',
+                  prefixIcon: Icon(Icons.person)
+              ),
+              controller: _usernameTextController,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                  labelText: '密码',
+                  hintText: '请输入您的密码',
+                  prefixIcon: Icon(Icons.lock)
+              ),
+              obscureText: true,
+              controller: _pwdTextController,
+              keyboardType: TextInputType.number,
+            ),
+
           ],
 
         ),
@@ -173,7 +216,7 @@ class Echo extends StatelessWidget {
   const Echo({
     Key key,
     @required this.text,
-    this.backgroundColor : Colors.grey,
+    this.backgroundColor: Colors.grey,
 
   }) : super(key: key);
 
@@ -182,16 +225,15 @@ class Echo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Center(
-      child: Container(
-        child: Text(text),
-        color: backgroundColor,
+      child: Column(
+        children: <Widget>[
+
+        ],
       ),
     );
   }
 }
-
 
 class NewRoute extends StatelessWidget {
   @override
@@ -341,3 +383,39 @@ class MyIcons {
 }
 
 
+//class SwitchAndCheckBoxTestRoute extends StatefulWidget {
+//  @override
+//  _SwitchAndCheckBoxTestRouteState createState() => new _SwitchAndCheckBoxTestRouteState();
+//}
+//
+//class _SwitchAndCheckBoxTestRouteState extends State<SwitchAndCheckBoxTestRoute> {
+//  bool _switchSelected=true; //维护单选开关状态
+//  bool _checkboxSelected=true;//维护复选框状态
+//  @override
+//  Widget build(BuildContext context) {
+//    return Center(
+//      child: Column(
+//        children: <Widget>[
+//          Switch(
+//            value: _switchSelected,//当前状态
+//            onChanged:(value){
+//              //重新构建页面
+//              setState(() {
+//                _switchSelected=value;
+//              });
+//            },
+//          ),
+//          Checkbox(
+//            value: _checkboxSelected,
+//            activeColor: Colors.red, //选中时的颜色
+//            onChanged:(value){
+//              setState(() {
+//                _checkboxSelected=value;
+//              });
+//            } ,
+//          )
+//        ],
+//      ),
+//    );
+//  }
+//}
