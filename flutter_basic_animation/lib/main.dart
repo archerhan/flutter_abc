@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_animation/scale_animation.dart';
-
-
+import 'package:flutter_basic_animation/hero_animate_route.dart';
+import 'package:flutter_basic_animation/stagger_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -110,6 +110,34 @@ class _MyHomePageState extends State<MyHomePage> {
                     return FadeTransition(
                       opacity: animation,
                       child: ScaleAnimationRoute(),
+                    );
+                  },
+                ));
+              },
+            ),
+            RaisedButton(
+              child: Text("Hero Animation"),
+              onPressed: () {
+                Navigator.push(context, PageRouteBuilder(
+                  transitionDuration: Duration(milliseconds: 500),
+                  pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation){
+                    return FadeTransition(
+                      opacity: animation,
+                      child: HeroAnimateRouteA(),
+                    );
+                  },
+                ));
+              },
+            ),
+            RaisedButton(
+              child: Text("mix Animation"),
+              onPressed: () {
+                Navigator.push(context, PageRouteBuilder(
+                  transitionDuration: Duration(milliseconds: 500),
+                  pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation){
+                    return FadeTransition(
+                      opacity: animation,
+                      child: StaggerDemo(),
                     );
                   },
                 ));
