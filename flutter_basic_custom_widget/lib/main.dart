@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic_custom_widget/gradient_button.dart';
 import 'package:flutter_basic_custom_widget/widgets/turn_box_route.dart';
 import 'package:flutter_basic_custom_widget/custom_paint_route.dart';
+import 'package:flutter_basic_custom_widget/gradient_progress_indicator_route.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -120,6 +122,17 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context){
                   return CustomPaintRoute();
+                }));
+              },
+            ),
+            GradientButton(
+              child: Text("渐变色进度条"),
+              colors: [Colors.blue, Colors.purple],
+              width: 140.0,
+              height: 40.0,
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context){
+                  return GradientCircularProgressRoute();
                 }));
               },
             )
