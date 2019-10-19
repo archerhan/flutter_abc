@@ -8,17 +8,17 @@
 
 # 基础Widget
 
-![基础Widgets](/Users/archer/Desktop/基础Widgets.png)
+![基础Widgets](https://github.com/archerhan/flutter_abc/blob/master/images/%E5%9F%BA%E7%A1%80Widgets.png)
 
 # 容器Widget
 
-![容器Widgets](/Users/archer/Desktop/容器Widgets.png)
+![容器Widgets](https://github.com/archerhan/flutter_abc/blob/master/images/%E5%AE%B9%E5%99%A8Widgets.png)
 
 
 
 # 布局Widget
 
-![布局Widget](/Users/archer/Desktop/布局Widget.png)
+![布局Widget](https://github.com/archerhan/flutter_abc/blob/master/images/%E5%B8%83%E5%B1%80Widget.png)
 
 # 
 
@@ -30,9 +30,9 @@
 
 # 路由管理
 
-![路由管理](/Users/archer/Desktop/路由管理.png)
+![路由管理](https://github.com/archerhan/flutter_abc/blob/master/images/%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86.png)
 
 # 包管理
 
-![包管理](https://github.com/archerhan/flutter_abc/blob/master/images/包管理.png)
+![包管理](https://github.com/archerhan/flutter_abc/blob/master/images/%E5%8C%85%E7%AE%A1%E7%90%86.png)
 
