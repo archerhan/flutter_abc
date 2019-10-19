@@ -26,7 +26,7 @@
 
 # 资源管理
 
-![资源管理](/Users/archer/Desktop/资源管理.png)
+![资源管理](https://github.com/archerhan/flutter_abc/blob/master/images/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86.png)
 
 
 
@@ -36,5 +36,5 @@
 
 # 包管理
 
-![包管理](/Users/archer/Desktop/包管理.png)
+![包管理](https://github.com/archerhan/flutter_abc/blob/master/images/包管理.png)
 
